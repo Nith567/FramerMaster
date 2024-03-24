@@ -11,7 +11,7 @@ export async function GET(
     const tableName= ids[0]
     const contractAddress = ids[1]
     const filteredData = await checkApi(tableName, contractAddress);
-console.log('filter hooks ',filteredData.title)
+console.log('filter hooks ',filteredData[0].title)
 
 return new ImageResponse(
     (
@@ -40,7 +40,8 @@ return new ImageResponse(
             margin: 0,
           }}
         >
-          {filteredData.title}
+          {filteredData[0].title}
+          {filteredData[0].metadata}
         </p>
         {filteredData && (
           <p
@@ -55,7 +56,8 @@ return new ImageResponse(
               marginTop: 20,
             }}
           >
-            {filteredData.steamId}
+            {filteredData[0].steamId}
+            {filteredData[0].price}
           </p>
         )}
       </div>
