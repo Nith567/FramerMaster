@@ -81,12 +81,7 @@ console.log('filter hooks ',filteredData[0].title)
             <meta property="fc:frame:button:1" content="Watch in browser" />
             <meta property="fc:frame:button:1:action" content="link" />
             <meta property="fc:frame:button:1:target" content="${postUrl}" />
-
             ${videoMeta}
-           <meta property="fc:frame:button:1" content="View Tutorial" />
-                <meta property="fc:frame:button:1:action" content="link" />
-            	    <meta property="fc:frame:button:1:target" content="https://sepolia.etherscan.io/address/${filteredData[0].contract}
-            
           </head>
           <body />
         </html>`,
@@ -103,7 +98,6 @@ console.log('filter hooks ',filteredData[0].title)
         <title>This is frame 4</title>
         <meta property="og:image" content="${process.env.NEXT_PUBLIC_SITE_URL}/framemaster.png" />
         <meta property="fc:frame" content="vNext" />
-        <meta property="of:accepts:xmtp" content="2024-02-01" />
         <meta property="of:accepts:xmtp" content="2024-02-01" />
         <meta property="fc:frame:image" content="${process.env.NEXT_PUBLIC_SITE_URL}/framemaster.png" />
     

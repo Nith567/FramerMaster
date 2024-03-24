@@ -27,7 +27,7 @@ console.log('filter hooks ',filteredData[0].title)
       'of:accepts:xmtp': '2024-02-01',
       'fc:frame:image': imageUrl,
       'fc:frame:post_url': postUrl,
-      'fc:frame:button:1': `Watch Livestream, video ${filteredData[0].contract} at $ ${filteredData[0].price}`
+      'fc:frame:button:1': `Watch Livestream, video`
     }
   }
 }
