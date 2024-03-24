@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@coinbase/onchainkit": "^0.10.2",
+    "@farcaster/hub-nodejs": "^0.10.23",
     "@nextui-org/react": "^2.2.10",
     "@privy-io/react-auth": "^1.59.5",
     "@tableland/sdk": "^6.0.0",

@@ -57,7 +57,7 @@ return new ImageResponse(
             }}
           >
             {filteredData[0].steamId}
-            {filteredData[0].price}
+            ${filteredData[0].price}
           </p>
         )}
       </div>
