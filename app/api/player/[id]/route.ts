@@ -16,7 +16,7 @@ export async function POST(
     const contractAddress = ids[1]
 
     const filteredData = await checkApi(tableName, contractAddress);
-console.log('filter hooks ',filteredData.title)
+console.log('filter hooks ',filteredData[0].title)
     const body: FrameRequest = await req.json()
   
     const { isValid, message } = await getFrameMessage(body, {
@@ -55,7 +55,7 @@ console.log('filter hooks ',filteredData.title)
       }
 
       if(hasAccessed){
-        const postUrl = `https://lvpr.tv?v=${filteredData.streamId}`
+        const postUrl = `https://lvpr.tv?v=${filteredData[0].streamId}`
         const imageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/all-good.jpg`
       
 
@@ -63,7 +63,7 @@ console.log('filter hooks ',filteredData.title)
       let response
       if (filteredData.streamId) {
         videoMeta = `
-        <meta property="fc:frame:video" content="${filteredData.streamId}" />
+        <meta property="fc:frame:video" content="${filteredData[0].streamId}" />
         <meta property="fc:frame:video:type" content="application/x-mpegURL" />`
       }
   
