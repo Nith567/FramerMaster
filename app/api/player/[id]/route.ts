@@ -39,6 +39,7 @@ console.log('filter hooks ',filteredData[0].title)
             <head>
               <title>No wallets!</title>
               <meta property="og:title" content="You need to add at least 1 wallet!" />
+              <meta property="of:accepts:xmtp" content="2024-02-01" />
               <meta property="og:image" content="${imageUrl}" />
               <meta property="fc:frame" content="vNext" />
               <meta property="fc:frame:image" content="${imageUrl}" />
@@ -73,6 +74,7 @@ console.log('filter hooks ',filteredData[0].title)
           <head>
             <title>Watch the video!</title>
             <meta property="og:title" content="You can watch the video!" />
+            <meta property="of:accepts:xmtp" content="2024-02-01" />
             <meta property="og:image" content="${imageUrl}" />
             <meta property="fc:frame" content="vNext" />
             <meta property="fc:frame:image" content="${imageUrl}" />
@@ -102,10 +104,12 @@ console.log('filter hooks ',filteredData[0].title)
         <meta property="og:image" content="${process.env.NEXT_PUBLIC_SITE_URL}/framemaster.png" />
         <meta property="fc:frame" content="vNext" />
         <meta property="of:accepts:xmtp" content="2024-02-01" />
+        <meta property="of:accepts:xmtp" content="2024-02-01" />
         <meta property="fc:frame:image" content="${process.env.NEXT_PUBLIC_SITE_URL}/framemaster.png" />
     
         <meta property="fc:frame:button:1" content="View Tutorial" />
         <meta property="fc:frame:button:1:action" content="link" />
+
         <meta property="fc:frame:button:1:target" content="https://github.com/Nith567" />
     
         <meta property="fc:frame:button:2" content="Restart" />
