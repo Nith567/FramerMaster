@@ -21,34 +21,6 @@ export default function LoginButton() {
 
   const router = useRouter()
 
-//   const switchs=async()=>{
-//     const wallet = wallets[0];
-//     const embeddedWallet = wallets.find((wallet) => (wallet.walletClientType === 'privy'));
-//     console.log(wallet.address)
-//     await  embeddedWallet?.switchChain(11155111);
-//     const provider = await wallet.getEthereumProvider();
-//     const providers = await wallet.getEthersProvider();
-//     const signer = providers.getSigner();
-//     const db = new Database({ signer });
-//     const prefix = "farframe";
-    
-// const { meta: create } = await db
-//   .prepare(`CREATE TABLE ${prefix} (id integer primary key,creator text,address text,contract text, title text, streamId text,metadata text,price integer);`)
-//   .run();
-  
-//   await create.txn?.wait();
-//  console.log('shikiu ', create.txn?.names)
-//   const tableName = create.txn?.names[0]
-//   console.log(tableName)
-// //   const transactionRequest = {
-// //     to: '0xA2a9055A014857d6c1e8f1BDD8682B6459C5Fa85',
-// //     value: 100000,
-// //   };
-// //   const transactionHash = await provider.request({
-// //     method: 'eth_sendTransaction',
-// //     params: [transactionRequest],
-// //   });
-//   }
 
   const handleSubmit = async (event:any) => {
     event.preventDefault();
@@ -64,7 +36,7 @@ export default function LoginButton() {
       const providers = await embeddedWallet.getEthersProvider();
       const signer = providers.getSigner();
       const db = new Database({ signer });
-      const prefix = "farframe";
+      const prefix = "farcast";
     
       const { meta: create } = await db
         .prepare(`CREATE TABLE ${prefix} (id integer primary key,creator text,address text,contract text, title text, streamId text,metadata text,price integer);`)
@@ -72,9 +44,7 @@ export default function LoginButton() {
         
         await create.txn?.wait();
         let tableName = create.txn?.names[0]
-
-      const priceWei = ethers.utils.parseEther(price).toString();
-     let contract=  await deployContract(signer, streamId, priceWei);
+     let contract=  await deployContract(signer, streamId, price);
       setContract(contract.address);
       console.log(contract.address,contract)
 
