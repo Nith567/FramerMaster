@@ -25,7 +25,7 @@ export default function VideoUploader() {
   }
   return (
     <>
-    <button onClick={pil}>Hiiii</button>
+    {/* <button onClick={pil}>Hiiii</button> */}
     </>
   )
 
