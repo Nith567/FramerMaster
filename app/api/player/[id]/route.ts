@@ -100,15 +100,10 @@ console.log('filter hooks ',filteredData[0].title)
         <meta property="fc:frame" content="vNext" />
         <meta property="of:accepts:xmtp" content="2024-02-01" />
         <meta property="fc:frame:image" content="${process.env.NEXT_PUBLIC_SITE_URL}/framemaster.png" />
-    
-        <meta property="fc:frame:button:1" content="View Tutorial" />
+        <meta property="fc:frame:button:1" content="Buy Contract" />
         <meta property="fc:frame:button:1:action" content="link" />
+        <meta property="fc:frame:button:1:target" content="https://sepolia.etherscan.io/address/${filteredData[0].contract}" />
 
-        <meta property="fc:frame:button:1:target" content="https://github.com/Nith567" />
-    
-        <meta property="fc:frame:button:2" content="Restart" />
-        <meta property="fc:frame:button:2:action" content="post" />
-        <meta property="fc:frame:button:2:target" content="https://github.com/Nith567" />
         </head></html>`
       )  
     }

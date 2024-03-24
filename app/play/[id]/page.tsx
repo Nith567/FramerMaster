@@ -27,7 +27,7 @@ export async function generateMetadata({
       'of:accepts:xmtp': '2024-02-01',
       'fc:frame:image': imageUrl,
       'fc:frame:post_url': postUrl,
-      'fc:frame:button:1': `Watch Livestream, video`
+      'fc:frame:button:1': `Access Livestream/video by ur fav creator`
     }
   }
 }
