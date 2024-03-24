@@ -79,7 +79,12 @@ console.log('filter hooks ',filteredData[0].title)
             <meta property="fc:frame:button:1" content="Watch in browser" />
             <meta property="fc:frame:button:1:action" content="link" />
             <meta property="fc:frame:button:1:target" content="${postUrl}" />
+
             ${videoMeta}
+           <meta property="fc:frame:button:1" content="View Tutorial" />
+                <meta property="fc:frame:button:1:action" content="link" />
+            	    <meta property="fc:frame:button:1:target" content="https://sepolia.etherscan.io/address/${filteredData[0].contract}
+            
           </head>
           <body />
         </html>`,

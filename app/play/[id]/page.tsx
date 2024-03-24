@@ -16,17 +16,17 @@ export async function generateMetadata({
   const filteredData = await checkApi(tableName, contractAddress);
 console.log('filter hooks ',filteredData[0].title)
   return {
-    title: 'Gated video',
-    description: 'Get access to the gated video',
+    title: 'Contract gated video',
+    description: 'Get access to the gated videos',
     openGraph: {
-      title: 'Gated video?',
+      title: 'Gated Contract creators video/livestream',
       images: [imageUrl]
     },
     other: {
       'fc:frame': 'vNext',
       'fc:frame:image': imageUrl,
       'fc:frame:post_url': postUrl,
-      'fc:frame:button:1': `Watch Livestream, video ${filteredData[0].contract}`
+      'fc:frame:button:1': `Watch Livestream, video ${filteredData[0].contract} at $ ${filteredData[0].price}`
     }
   }
 }
