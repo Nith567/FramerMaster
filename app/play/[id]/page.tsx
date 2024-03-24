@@ -1,3 +1,4 @@
+import { checkApi } from '@/lib/checkdata'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -12,6 +13,8 @@ export async function generateMetadata({
   const imageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/images/${id}`
   const postUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/player/${id}`
 
+  const filteredData = await checkApi(tableName, contractAddress);
+console.log('filter hooks ',filteredData[0].title)
   return {
     title: 'Gated video',
     description: 'Get access to the gated video',
@@ -23,7 +26,7 @@ export async function generateMetadata({
       'fc:frame': 'vNext',
       'fc:frame:image': imageUrl,
       'fc:frame:post_url': postUrl,
-      'fc:frame:button:1': 'Watch Livestream, video'
+      'fc:frame:button:1': `Watch Livestream, video ${filteredData[0].contract}`
     }
   }
 }
