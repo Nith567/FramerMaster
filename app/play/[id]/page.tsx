@@ -14,7 +14,7 @@ export async function generateMetadata({
   const postUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/api/player/${id}`
 
   const filteredData = await checkApi(tableName, contractAddress);
-console.log('filter hooks ',filteredData[0].title)
+
   return {
     title: 'Contract gated video',
     description: 'Get access to the gated videos',

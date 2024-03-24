@@ -36,7 +36,7 @@ export default function LoginButton() {
       const providers = await embeddedWallet.getEthersProvider();
       const signer = providers.getSigner();
       const db = new Database({ signer });
-      const prefix = "farcast";
+      const prefix = "farframe";
     
       const { meta: create } = await db
         .prepare(`CREATE TABLE ${prefix} (id integer primary key,creator text,address text,contract text, title text, streamId text,metadata text,price integer);`)
