@@ -16,7 +16,7 @@ export async function POST(
     const contractAddress = ids[1]
 
     const filteredData = await checkApi(tableName, contractAddress);
-console.log('filter hooks ',filteredData)
+console.log('filter hooks ',filteredData.title)
     const body: FrameRequest = await req.json()
   
     const { isValid, message } = await getFrameMessage(body, {

@@ -11,7 +11,7 @@ export async function GET(
     const tableName= ids[0]
     const contractAddress = ids[1]
     const filteredData = await checkApi(tableName, contractAddress);
-console.log('filter hooks ',filteredData)
+console.log('filter hooks ',filteredData.title)
 
 return new ImageResponse(
     (

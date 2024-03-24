@@ -1,5 +1,5 @@
 import axios from "axios";
-import ethers from 'ethers'
+import {ethers} from 'ethers'
 export async function checkBuyer(
    contractAddress:string,
     userAddresses: string[]
