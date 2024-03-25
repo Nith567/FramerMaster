@@ -13,6 +13,9 @@ export async function GET(
     const filteredData = await checkApi(tableName, contractAddress);
 console.log('filter hooks ',filteredData[0].title)
 
+const headers = {
+  'of:accepts:xmtp': '2024-02-01'
+};
 return new ImageResponse(
     (
       <div
@@ -65,6 +68,7 @@ return new ImageResponse(
     {
       width: 1200,
       height: 630,
+      headers: headers
     }
   )
 } catch (e: any) {
