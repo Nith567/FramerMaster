@@ -3,6 +3,8 @@ import { FrameRequest, getFrameMessage } from '@coinbase/onchainkit'
 import { checkApi } from '@/lib/checkdata'
 import { checkBuyer } from '@/lib/checkBuyer'
 
+
+
 const NEYNAR_API_KEY =process.env.NEYNAR_API_KEY 
 
 export const dynamic = 'force-dynamic'
@@ -31,7 +33,7 @@ console.log('filter hooks ',filteredData[0].title)
     const hasAccessed = await checkBuyer(contractAddress, wallets);//checking condition
 
     if (wallets.length === 0) {
-        const imageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/no-wallets.jpg`
+        const imageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/framemaster.png`
     
         return new NextResponse(
           `<!DOCTYPE html>
@@ -43,6 +45,8 @@ console.log('filter hooks ',filteredData[0].title)
               <meta property="og:image" content="${imageUrl}" />
               <meta property="fc:frame" content="vNext" />
               <meta property="fc:frame:image" content="${imageUrl}" />
+              <meta property="fc:frame:button:1:action" content="link" />
+            <meta property="fc:frame:button:1:target" content="https://warpcast.com/" />
             </head>
             <body />
           </html>`,
@@ -58,8 +62,6 @@ console.log('filter hooks ',filteredData[0].title)
       if(hasAccessed){
         const postUrl = `https://lvpr.tv?v=${filteredData[0].streamId}`
         const imageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/all-good.jpg`
-      
-
       let videoMeta = ``
       let response
       if (filteredData.streamId) {
