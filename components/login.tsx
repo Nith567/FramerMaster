@@ -66,7 +66,6 @@ export default function LoginButton() {
     }
   };
 
-
   return (
     <div>
     {ready && !authenticated && (
@@ -82,7 +81,8 @@ export default function LoginButton() {
 
 {broadcast && 
                <div>Your Stream: {broadcast}</div>}
-      
+    
+
       <div className="max-w-md mx-auto mt-8">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

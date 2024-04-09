@@ -2,11 +2,10 @@ import { getSrc } from '@livepeer/react/external';
 import axios from 'axios';
 import { Livepeer } from 'livepeer';
 
-
 export const createStream= async (streamData: { name: string }) => {
 	const url = 'https://livepeer.studio/api/stream';
 	const headers = {
-		Authorization: `Bearer 41c68e93-8b26-4e49-834c-458b015ba152`,
+		Authorization:  `Bearer ${process.env.NEXT_PUBLIC_LIVEPEER_API}`,
 		'Content-Type': 'application/json',
 	};
 	const response = await axios.post(url, streamData, { headers });
