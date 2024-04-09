@@ -5,7 +5,7 @@ import { Livepeer } from 'livepeer';
 export const createStream= async (streamData: { name: string }) => {
 	const url = 'https://livepeer.studio/api/stream';
 	const headers = {
-		Authorization:  `Bearer 41c68e93-8b26-4e49-834c-458b015ba152`,
+		Authorization:  `Bearer 076070ba-2c46-4a2e-919c-779b5e32ec42`,
 		'Content-Type': 'application/json',
 	};
 	const response = await axios.post(url, streamData, { headers });
