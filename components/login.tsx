@@ -77,12 +77,12 @@ export default function LoginButton() {
     )}
     {ready && authenticated && (
         <div>
-      <p>{user?.wallet?.address}
+   {user?.wallet?.address}
       <li>Google: {user?.google ? user?.google.email : 'None'}</li>
 
 {broadcast && 
                <div>Your Stream: {broadcast}</div>}
-      </p>
+      
       <div className="max-w-md mx-auto mt-8">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
