@@ -7,7 +7,7 @@ export async function checkBuyer(
     try   
     {
         
-const provider = new ethers.providers.JsonRpcProvider('https://eth-sepolia.g.alchemy.com/v2/wqf-6tD6w_KE4FiYQNOvTD8skfQVMN8S'); // Connect to your Ethereum provider
+const provider = new ethers.providers.JsonRpcProvider('https://eth-sepolia.g.alchemy.com/v2/wqf-6tD6w_KE4FiYQNOvTD8skfQVMN8S'); 
 
 const contractABI = ["function hasAccessed(address _buyer) public returns (uint256)"];
 const contract = new ethers.Contract(contractAddress, contractABI, provider);
