@@ -5,7 +5,7 @@ import { checkBuyer } from '@/lib/checkBuyer'
 
 
 
-const NEYNAR_API_KEY =process.env.NEYNAR_API_KEY 
+const NEYNAR_API_KEY =process.env.NEXT_PUBLIC_NEYNAR_API
 
 export const dynamic = 'force-dynamic'
 
