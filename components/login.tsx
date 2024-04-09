@@ -6,12 +6,14 @@ import { useState } from 'react';
 import { ethers } from 'ethers';
 import { useRouter } from 'next/navigation'
 import { deployContract } from '@/lib/deploy'
+import { createStream, getStreamUrl,getPlayback } from '@/lib/livepeer';
+
 export default function LoginButton() {
 
   const {ready, authenticated, login,user} = usePrivy();
   const disableLogin = !ready || (ready && authenticated);
   const {wallets} = useWallets();
-  const [creator, setCreator] = useState('');
+  const [broadcast, setBroadcast] = useState('');
   const [title, setTitle] = useState('');
   const [contract, setContract] = useState('');
   const [table, setTableName] = useState('');
@@ -37,27 +39,27 @@ export default function LoginButton() {
       const signer = providers.getSigner();
       const db = new Database({ signer });
       const prefix = "farframe";
-    
+      const streamData = await createStream({ name:streamId});
+      const streamUrl = getStreamUrl(streamData.streamKey);
+      const playbackId = getPlayback(streamData.playbackId);
+      console.log('so bite, ',streamUrl, 'also ',playbackId)
+      setBroadcast(streamUrl)
       const { meta: create } = await db
         .prepare(`CREATE TABLE ${prefix} (id integer primary key,creator text,address text,contract text, title text, streamId text,metadata text,price integer);`)
         .run();
-        
         await create.txn?.wait();
         let tableName = create.txn?.names[0]
-     let contract=  await deployContract(signer, streamId, price);
+     let contract=  await deployContract(signer, playbackId, price);
       setContract(contract.address);
       console.log(contract.address,contract)
-
       const { meta: insert } = await db
         .prepare(`INSERT INTO ${tableName} (creator,address,contract, title, streamId, metadata, price) VALUES (?, ?, ?, ?, ?, ?, ?)`)
-        .bind(`${user?.id.split(":").at(2)}`,`${user?.wallet?.address}`,`${contract.address}`,title ,streamId, metadata, price)
+        .bind(`${user?.id.split(":").at(2)}`,`${user?.wallet?.address}`,`${contract.address}`,title ,playbackId, metadata, price)
         .run();
-
       await insert.txn?.wait();
       console.log(insert.txn?.names)
       console.log('Data inserted successfully');
   let p=user?.id.split(":").at(2)
-
   router.push(`/watch/${tableName}-${contract.address}`)
     } catch (error) {
       console.error('Error:', error);
@@ -68,15 +70,18 @@ export default function LoginButton() {
   return (
     <div>
     {ready && !authenticated && (
-      <button disabled={disableLogin} onClick={login}>
-        Log in
-      </button>
+      <button className='m-2 p-3 bg-blue-500 inline-block  hover:bg-violet-800 text-white font-bold py-2 px-4 rounded-lg shadow-md'disabled={disableLogin} onClick={login}>
+      Log in
+    </button>
+
     )}
     {ready && authenticated && (
         <div>
-      <p>User {user?.id} is logged in. {user?.wallet?.address}
+      <p>{user?.wallet?.address}
       <li>Google: {user?.google ? user?.google.email : 'None'}</li>
-      <li>Email: {user?.email ? user?.email.address : 'None'}</li>
+
+{broadcast && 
+               <div>Your Stream: {broadcast}</div>}
       </p>
       <div className="max-w-md mx-auto mt-8">
       <form onSubmit={handleSubmit} className="space-y-4">

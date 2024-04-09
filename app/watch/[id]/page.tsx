@@ -13,13 +13,10 @@ export default function Home({ params }: { params: { id: string } }) {
           </div>
           <p className="mt-4 max-w-lg mx-auto">
             Share this link on Farcaster and only payers will be 
-            able to access your video.
+            able to access your livestream video.
           </p>
         </div>
       </main>
-
-
-
     )
   }
   
